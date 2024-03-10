@@ -1,14 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="public/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'greenF': '#469649',
+                        'white' : '#ffffff',
+                    }
+                }
+            }
+        }
+    </script>
     <title>Blackjack</title>
 </head>
+
 <body>
-    
+
+    <header class="text-center bg-black text-white p-4 text-2xl">
+        Blackjack
+    </header>
+    <main class="text-white">
+        <div class="flex md:flex-row flex-wrap md:gap-4 gap-1 md:justify-center mt-2 flex-col items-center ">
+            <button class="max-w-xs min-w-36 px-4 py-2 font-semibold text-sm bg-purple-600 text-white rounded-md shadow-sm opacity-100 hover:bg-purple-700 hover:scale-110" type="button">
+                Nuevo Juego
+            </button>
+            <button class="max-w-xs min-w-36 px-4 py-2 font-semibold text-sm bg-blue-600 text-white rounded-md shadow-sm opacity-100 hover:bg-blue-700 hover:scale-110" type="button">
+                Pedir Carta
+            </button>
+            <button class="max-w-xs min-w-36 px-4 py-2 font-semibold text-sm bg-red-600 text-white rounded-md shadow-sm opacity-100 hover:bg-red-700 hover:scale-110" type="button">
+                Detener
+            </button>
+        </div>
+        <div class="mx-2 contenedor-cartas">
+            <div class="mb-4 min-h-90">
+                <h1 class="text-2xl">Jugador - 1 <small>0</small></h1>
+                <div class="flex flex-row " id="jugador-cartas">
+                    <img class="md:max-w-40 max-w-20" src="assets/cartas/10C.png" alt="carta">
+                </div>
+            </div>
+            <div>
+                <h1 class="text-2xl">Computadora - <small>0</small></h1>
+                <div class="flex flex-row " id="computadora-cartas">
+                    <img class="md:max-w-40 max-w-20" src="assets/cartas/3H.png" alt="carta">
+                </div>
+            </div>
+        </div>
+    </main>
 
     <script src="assets/js/app.js"></script>
 </body>
+
 </html>
