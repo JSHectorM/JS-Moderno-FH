@@ -13,7 +13,7 @@
                 extend: {
                     colors: {
                         'greenF': '#469649',
-                        'white' : '#ffffff',
+                        'white': '#ffffff',
                     }
                 }
             }
@@ -28,28 +28,66 @@
         Blackjack
     </header>
     <main class="text-white">
-        <div id="divBotones" class="flex md:flex-row flex-wrap md:gap-4 gap-1 md:justify-center mt-2 flex-col items-center ">
-            <button id="btnNuevo" class="max-w-xs min-w-36 px-4 py-2 font-semibold text-sm bg-purple-600 text-white rounded-md shadow-sm opacity-100 hover:bg-purple-700 hover:scale-110" type="button">
+        <div id="divBotones"
+            class="flex md:flex-row flex-wrap md:gap-4 gap-1 md:justify-center mt-2 flex-col items-center ">
+            <button id="btnNuevo"
+                class="max-w-xs min-w-36 px-4 py-2 font-semibold disabled:opacity-75 text-sm bg-purple-600 text-white rounded-md shadow-sm opacity-100 enabled:hover:bg-purple-700 enabled:hover:scale-110"
+                type="button">
                 Nuevo Juego
             </button>
-            <button id="btnPedir" class="max-w-xs min-w-36 px-4 py-2 font-semibold text-sm bg-blue-600 text-white rounded-md shadow-sm opacity-100 hover:bg-blue-700 hover:scale-110" type="button">
+            <button id="btnPedir"
+                class="max-w-xs min-w-36 px-4 py-2 font-semibold disabled:opacity-75 text-sm bg-blue-600 text-white rounded-md shadow-sm opacity-100 enabled:hover:bg-blue-700 enabled:hover:scale-110"
+                type="button">
                 Pedir Carta
             </button>
-            <button id="btnDetener" class="max-w-xs min-w-36 px-4 py-2 font-semibold text-sm bg-red-600 text-white rounded-md shadow-sm opacity-100 hover:bg-red-700 hover:scale-110" type="button">
+            <button id="btnDetener"
+                class="max-w-xs min-w-36 px-4 py-2 font-semibold disabled:opacity-75 text-sm bg-red-600 text-white rounded-md shadow-sm opacity-100 enabled:hover:bg-red-700 enabled:hover:scale-110"
+                type="button">
                 Detener
             </button>
         </div>
         <div class="mx-2 contenedor-cartas">
             <div class="mb-4 min-h-90">
                 <h1 class="text-2xl">Jugador - 1 <small>0</small></h1>
-                <div class="flex flex-row " id="jugador-cartas">
-                    <img class="md:max-w-40 max-w-20" src="assets/cartas/10C.png" alt="carta">
+                <div class="flex flex-row " id="jugadorCartas">
+                    <!-- <img class="md:max-w-40 max-w-20" src="assets/cartas/10C.png" alt="carta"> -->
                 </div>
             </div>
             <div>
                 <h1 class="text-2xl">Computadora - <small>0</small></h1>
-                <div class="flex flex-row " id="computadora-cartas">
-                    <img class="md:max-w-40 max-w-20" src="assets/cartas/3H.png" alt="carta">
+                <div class="flex flex-row " id="computadoraCartas">
+                    <!-- <img class="md:max-w-40 max-w-20" src="assets/cartas/3H.png" alt="carta"> -->
+                </div>
+            </div>
+        </div>
+        <div id="dialog" class="hidden">
+            <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+                <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+                    <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                        <div
+                            class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                            <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                                <div class="sm:flex sm:items-start">
+                                    <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                                        <h3 id="dialogTitulo" class="text-xl font-semibold leading-6 text-gray-900" id="modal-title">
+                                        </h3>
+                                        <div class="mt-2">
+                                            <p id="dialogInstrucciones" class="text-sm text-gray-500">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                                <button type="button" id="btnAceptar"
+                                    class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto hover:bg-red-700 hover:scale-110">
+                                    Aceptar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

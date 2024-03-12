@@ -3,7 +3,7 @@ html, body {
     padding: 0;
     background-color: #469649;
 }
-#jugador-cartas, #computadora-cartas{
+#jugadorCartas, #computadoraCartas{
     min-height: 180px;
 }
 .contenedor-cartas img {
