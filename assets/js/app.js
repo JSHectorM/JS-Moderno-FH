@@ -95,7 +95,12 @@ const turnoComputadora = ( puntosMinimo ) => {
         imgCarta.alt = `Carta-${carta}`;
         // const imgCarta = generaCarta( puntosComputadora, 1 ); // TODO
         divCartasComputadora.append(imgCarta);
-    } while ( puntosComputadora < puntosMinimo  && puntosComputadora <= 21);
+
+        if( puntosMinimo > 21 ){
+            break;
+        }
+
+    } while (( puntosComputadora < puntosMinimo)  && puntosMinimo <= 21);
     if (puntosComputadora > puntosMinimo && puntosComputadora <= 21) {
         initDialog( 'Perdiste !!!',' 😖😖😖😖😖😖😖 ' );
     }else if ( puntosComputadora === puntosMinimo ){
@@ -144,6 +149,8 @@ btnPedir.addEventListener('click', () => {
 
     if (puntosJugador > 21) {
         console.warn("Perdiste ....");
+        btnDetener.disabled = true;
+        turnoComputadora( puntosJugador );
         dialog.className = ''
         initDialog( '¡ Perdiste !', 'Pero puedes iniciar un nuevo juego'); 
         btnPedir.disabled = true;
@@ -151,10 +158,14 @@ btnPedir.addEventListener('click', () => {
     }else if ( puntosJugador === 21 ) {
         btnPedir.disabled = true;
         console.warn("Llego a 21!!!");
+        btnDetener.disabled = true;
+        turnoComputadora(puntosJugador);
     }
 
 });
 
 btnDetener.addEventListener('click', () => {
+    btnPedir.disabled = true;
+    btnDetener.disabled = true;
     turnoComputadora(puntosJugador);
 });
