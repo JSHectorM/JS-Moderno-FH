@@ -60,7 +60,7 @@ const valorCarta = ( carta ) => {
             : parseInt( valor ) )
 }
 
-const generaCarta = (puntosPersonaje, tipoTag, divCarta) => {
+const generaCarta = (puntosPersonaje, tipoTag) => {
     const carta = pedirCarta();
 
     puntosPersonaje = puntosPersonaje + valorCarta(carta);
@@ -70,8 +70,16 @@ const generaCarta = (puntosPersonaje, tipoTag, divCarta) => {
     imgCarta.src = `assets/cartas/${carta}.png`;
     imgCarta.className = 'md:max-w-40 max-w-20';
     imgCarta.alt = `Carta-${carta}`;
-    divCarta.append(imgCarta);
+    return imgCarta
 }
+
+// * funcion para aparecer el dialog con elementos que se le manden
+const initDialog = (titulo, instr) =>{
+    dialog.className = ''
+    dialogTitulo.innerText = titulo;
+    dialogInstrucciones.innerText = instr;
+}
+
 
 // * Turno computadora
 const turnoComputadora = ( puntosMinimo ) => {
@@ -85,11 +93,16 @@ const turnoComputadora = ( puntosMinimo ) => {
         imgCarta.src = `assets/cartas/${carta}.png`;
         imgCarta.className = 'md:max-w-40 max-w-20';
         imgCarta.alt = `Carta-${carta}`;
+        // const imgCarta = generaCarta( puntosComputadora, 1 ); // TODO
         divCartasComputadora.append(imgCarta);
-
-        // generaCarta( puntosComputadora, 1, divCartasComputadora )
-        
-    } while ( puntosComputadora < puntosJugador  && puntosComputadora != 21 && puntosJugador <= 21);
+    } while ( puntosComputadora < puntosMinimo  && puntosComputadora <= 21);
+    if (puntosComputadora > puntosMinimo && puntosComputadora <= 21) {
+        initDialog( 'Perdiste !!!',' 😖😖😖😖😖😖😖 ' );
+    }else if ( puntosComputadora === puntosMinimo ){
+        initDialog( 'Empate !!!',' 🥪🥪🥪🥪🥪🥪🥪🥪 ' );
+    }else{
+        initDialog( 'Ganaste !!!',' 🥳🥳🥳🥳🥳🥳🥳 ' );
+    }
 }
 
 
@@ -112,6 +125,8 @@ btnNuevo.addEventListener('click', () => {
     divCartasJugador.innerHTML = '';
     divCartasComputadora.innerHTML = '';
     btnPedir.disabled = false;
+    btnDetener.disabled = false;
+
     
 });
 
@@ -130,9 +145,9 @@ btnPedir.addEventListener('click', () => {
     if (puntosJugador > 21) {
         console.warn("Perdiste ....");
         dialog.className = ''
-        dialogTitulo.innerText = '¡ Perdiste !'
-        dialogInstrucciones.innerText = 'Pero puedes iniciar un nuevo juego'
+        initDialog( '¡ Perdiste !', 'Pero puedes iniciar un nuevo juego'); 
         btnPedir.disabled = true;
+        btnDetener.disabled = true;
     }else if ( puntosJugador === 21 ) {
         btnPedir.disabled = true;
         console.warn("Llego a 21!!!");
