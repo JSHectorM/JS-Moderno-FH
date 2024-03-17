@@ -1,6 +1,10 @@
 // * Funcion anonima autoinvocada
 // * - Patron modulo
 (() => {
+
+  // ? modo estricto de javascript
+  'use strict'
+
   /*
    * 2C = Two of Clubs (Treboles)
    * 2D = Two of Diamonds (Diammantes)
@@ -12,8 +16,9 @@
   const tipos = ["C", "D", "H", "S"];
   const especiales = ["A", "J", "Q", "K"];
 
-  let puntosJugador = 0;
-  let puntosComputadora = 0;
+  let puntosJugadores = [];
+//   let puntosJugador = 0;
+//   let puntosComputadora = 0;
 
   // * Referencias al DOM
   const btnPedir = document.querySelector("#btnPedir");
