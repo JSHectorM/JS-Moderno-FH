@@ -37,11 +37,13 @@
             </button>
             <button id="btnPedir"
                 class="max-w-xs min-w-36 px-4 py-2 font-semibold disabled:opacity-75 text-sm bg-blue-600 text-white rounded-md shadow-sm opacity-100 enabled:hover:bg-blue-700 enabled:hover:scale-110"
+                disabled="true"
                 type="button">
                 Pedir Carta
             </button>
             <button id="btnDetener"
                 class="max-w-xs min-w-36 px-4 py-2 font-semibold disabled:opacity-75 text-sm bg-red-600 text-white rounded-md shadow-sm opacity-100 enabled:hover:bg-red-700 enabled:hover:scale-110"
+                disabled="true"
                 type="button">
                 Detener
             </button>
@@ -49,13 +51,13 @@
         <div class="mx-2 contenedor-cartas">
             <div class="mb-4 min-h-90">
                 <h1 class="text-2xl">Jugador - 1 <small>0</small></h1>
-                <div class="flex flex-row " id="jugadorCartas">
+                <div class="flex flex-row divCartas" id="jugadorCartas">
                     <!-- <img class="md:max-w-40 max-w-20" src="assets/cartas/10C.png" alt="carta"> -->
                 </div>
             </div>
             <div>
                 <h1 class="text-2xl">Computadora - <small>0</small></h1>
-                <div class="flex flex-row " id="computadoraCartas">
+                <div class="flex flex-row divCartas" id="computadoraCartas">
                     <!-- <img class="md:max-w-40 max-w-20" src="assets/cartas/3H.png" alt="carta"> -->
                 </div>
             </div>
@@ -95,6 +97,10 @@
 
     <script src="assets/js/underscore.min.js"></script>
     <script src="assets/js/app.js"></script>
+    <script>
+        console.log(moduloJuego);
+        moduloJuego.nuevoJuego();
+    // </script>
 </body>
 
 </html>
